@@ -1,0 +1,48 @@
+### Login
+POST http://localhost:5000/api/auth/login
+Content-Type: application/json
+
+{
+  "email": "librarian@shelflife.com",
+  "password": "librarian123"
+}
+
+### Add Book
+POST http://localhost:5000/api/books
+Content-Type: application/json
+
+{
+  "title": "The Hobbit",
+  "author": "J.R.R. Tolkien",
+  "isbn": "9780261103344",
+  "genre": "Fantasy",
+  "totalCopies": 5,
+  "availableCopies": 5
+}
+
+### Register Member
+POST http://localhost:5000/api/members
+Content-Type: application/json
+
+{
+  "name": "Alice Smith",
+  "email": "alice@example.com",
+  "membershipId": "MEM-1001"
+}
+
+### Issue Book
+POST http://localhost:5000/api/borrow
+Content-Type: application/json
+Authorization: Bearer <token>
+
+{
+  "bookId": "<book-id>",
+  "memberId": "<member-id>"
+}
+
+### Return Book
+POST http://localhost:5000/api/return/<borrow-id>
+Authorization: Bearer <token>
+
+### Member History
+GET http://localhost:5000/api/members/<member-id>/history
